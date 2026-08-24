@@ -34,17 +34,5 @@ void destruir_lista(Lista *l){
 }
 
 int inserir_lista(Lista *l, int numero){
-    int posicao;
-    int i;
-
-    if (l == NULL){
-        return 0;
-    }   
-
-    if (l->ultimo == l->quantidade_max -1){
-        return 0;
-    }
-
-    posicao = 0;
-
+    
 }
