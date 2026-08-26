@@ -1,20 +1,23 @@
 #ifndef LISTA_H
 #define LISTA_H
 
+#include <stddef.h>
+
 typedef struct {
-    int quantidade_max;
+    size_t capacidade;
     int ultimo;
     int *elementos;
-} Lista;
+} lista;
 
-Lista *criar_lista(int quantidade_max);
+lista* cria_lista(size_t n);
 
-int remover_lista(Lista *l, int posicao);
+void destroi_lista (lista *L);
 
-int inserir_lista(Lista *l, int numero);
+int insere_lista(lista *L, int elemento);
 
-int buscar_lista(Lista *l, int numero);
+int remover_lista(lista *L, int elemento);
 
-void destruir_lista(Lista *l);
+int buscar_lista(lista *L, int elemento);
 
-#endif 
+#endif
+

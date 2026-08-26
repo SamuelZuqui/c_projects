@@ -28,7 +28,7 @@
 
                                 -- TABELA DE DIFERENÇAS --
 | Característica                 | Lista Sequencial              | Lista Encadeada                |
-|--------------------------------|--------------------------------|-------------------------------|
+|--------------------------------|-------------------------------|--------------------------------|
 | Memória                        | Contígua                      | Não precisa ser contígua       |
 | Usa vetor                      | Sim                           | Não necessariamente            |
 | Usa nós                        | Não                           | Sim                            |
