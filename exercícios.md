@@ -26,6 +26,6 @@
 
 7) [] Considere o uso de colchetes e chaves no exercício anterior.
 
-8) [] Escreva uma função para avaliar uma expressão em notação pós fixa.
+8) [] Escreva uma função para avaliar uma expres são em notação pós fixa.
 
     3 1 + 4 1 - * 5 +
