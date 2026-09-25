@@ -1,27 +1,62 @@
-#include <stdlib.h>
 #include "lista.h"
+#include <stdlib.h>
+#include <stdio.h>
 
-Lista *criar_lista(void) {
-    return NULL;
+struct no{
+    int valor;
+    no *proximo;
+};
+
+struct lista{   
+    int quantidade;
+    no *primeiro;
+    no *ultimo;
+};
+
+lista *criar_lista(void){
+    lista *l = malloc(sizeof(lista));
+
+    if (l == NULL){
+        return NULL;
+    }
+    
+l->quantidade = 0;
+l->primeiro = NULL;
+l->ultimo = NULL;
+
+return l;
 }
 
-Lista *inserir_inicio(Lista *lista, int valor) {
-    Lista *novo = malloc(sizeof *novo);
+void destruir_lista(lista *l){
+    if (l == NULL){
+        return;
+    }
 
-    if (novo == NULL) {
-        return lista;
+    no *p = l->primeiro;
+
+    while (p != NULL){
+        no *proximo = p->proximo;
+        free(p);
+        p = proximo;
+    }
+
+    free(l);
+}
+
+int inserir_inicio(lista *l, int valor){
+    if (l == NULL){
+        return 0;
+    }
+
+    no *novo = malloc(sizeof(no));
+    if (novo == NULL){
+        return 0;
     }
 
     novo->valor = valor;
-    novo->prox = lista;
+    novo->proximo = l->primeiro;
 
-    return novo;
+
 }
 
-void liberar_lista(Lista *lista) {
-    while (lista != NULL) {
-        Lista *proximo = lista->prox;
-        free(lista);
-        lista = proximo;
-    }
-}
+
