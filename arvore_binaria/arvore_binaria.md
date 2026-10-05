@@ -140,8 +140,42 @@ Ex.2:
 Ex.3:
                    [Nó_1]
                    /     \
-             [Nó_2]       [Nó_3]          -> [QUASE_CHEIA]
+             [Nó_2]       [Nó_3]          -> [QUASE_CHEIA] (tende à esquerda)
             /     \       /
        [Nó_4]    [Nó_5] [Nó_6]
 
 
+6) Caminhamento em árvore:
+
+     1) Encaminhamento em profundidade: (menor pro maior, passando por cada caminho na vertical)
+
+          - Pré-ordem: [RAIZ] - ESQ - DIR   |
+          - Em-ordem: ESQ - [RAIZ] - DIR    | A RAIZ QUE ANDA.
+          - Pós-ordem: ESQ - DIR - [RAIZ]   |
+
+           Ex.:
+                   [a]              |  PRÉ-ORDEM: a,b,d,e,f,g,c,h                 
+                  /   \             | 
+               [b]    [c]           |  EM-ORDEM: d,b,f,e,g,a,c,h     COM PILHA
+              /   \     \           |
+           [d]    [e]    [h]        |  PÓS-ORDEM: d,f,g,e,b,h,c,a
+                  /  \              V 
+                [f]   [g]
+
+     2) Encaminhamento em largura:
+
+          - Em-nível
+
+           Ex.:
+            -----------------> 
+                   [a]                                
+                  /   \              
+               [b]    [c]             EM-ORDEM: a,b,c,d,e,h,f,g     COM FILA
+              /   \     \           
+           [d]    [e]    [h]         
+                  / \
+                [f]  [g]
+
+
+ 
+ 
