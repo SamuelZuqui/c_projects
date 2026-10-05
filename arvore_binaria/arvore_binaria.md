@@ -177,5 +177,19 @@ Ex.3:
                 [f]  [g]
 
 
- 
- 
+ 7) Árvore binária de busca: 
+     T
+      \
+       (R)
+      /   \
+     O     O
+   SAE     DAE
+
+   - Uma árvore binária é uma árvore binária de busca (ABB), se todo nó da SAE for menor que a Raiz e todo nó da SAD for maior que a Raiz.
+
+   EX.: 
+          [5]
+         /   \
+       [3]   [10]
+      /   \
+    [1]   [4]
