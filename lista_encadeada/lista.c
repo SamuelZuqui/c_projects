@@ -2,29 +2,18 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-struct no{
-    int valor;
-    no *proximo;
-};
-
-struct lista{   
-    int quantidade;
-    no *primeiro;
-    no *ultimo;
-};
-
 lista *criar_lista(void){
     lista *l = malloc(sizeof(lista));
 
     if (l == NULL){
         return NULL;
     }
-    
-l->quantidade = 0;
-l->primeiro = NULL;
-l->ultimo = NULL;
+     
+    l->quantidade = 0;
+    l->primeiro = NULL;
+    l->ultimo = NULL;
 
-return l;
+    return l;
 }
 
 void destruir_lista(lista *l){
@@ -41,6 +30,7 @@ void destruir_lista(lista *l){
     }
 
     free(l);
+
 }
 
 int inserir_inicio(lista *l, int valor){
@@ -49,6 +39,7 @@ int inserir_inicio(lista *l, int valor){
     }
 
     no *novo = malloc(sizeof(no));
+
     if (novo == NULL){
         return 0;
     }
@@ -56,7 +47,4 @@ int inserir_inicio(lista *l, int valor){
     novo->valor = valor;
     novo->proximo = l->primeiro;
 
-
 }
-
-

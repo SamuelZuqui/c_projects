@@ -18,7 +18,7 @@ lista* criar_lista(){
     
     if (l) {
         l->quantidade = 0;
-        l->primeiro = l->ultimo = NULL;s
+        l->primeiro = l->ultimo = NULL;
     }
     
     return l;
