@@ -1,6 +1,17 @@
-# Árvores binárias e árvores AVL
+# Árvores binárias, árvores AVL, busca e ordenação
 
-## 1. Definição de árvore binária
+## Pendências de estudo
+
+- [ ] Pegar a matéria sobre encaminhamento na implementação de árvores.
+- [ ] Completar o exercício de inserção em árvore AVL: faltam a árvore inicial e os elementos a inserir.
+- [ ] Conferir os exemplos de árvore completa: os rótulos não parecem corresponder à definição anotada.
+- [ ] Conferir o resultado final do exemplo de Merge Sort.
+
+---
+
+# Parte 1 — Árvores binárias
+
+## 1. Definição
 
 Uma árvore pode ser definida de maneira recursiva:
 
@@ -95,8 +106,6 @@ Um **caminho** é uma sequência de nós em que cada nó, exceto o primeiro, é 
              [Nó_4]   [Nó_5]   [Nó_6]
 ```
 
-Exemplos de caminhos:
-
 | Sequência | É um caminho? |
 |---|---|
 | ⟨2, 5⟩ | ✅ |
@@ -175,6 +184,8 @@ $$
 ## 4. Árvore completa
 
 Todos os nós da árvore possuem **nenhum ou dois filhos**.
+
+> **Pendente:** conferir os rótulos dos exemplos abaixo com a definição anotada.
 
 **Exemplo 1 — [COMPLETA]**
 
@@ -329,7 +340,7 @@ Pode-se escolher pela direita ou pela esquerda, usando o sucessor ou o antecesso
 
 ## 8. Implementação de uma árvore
 
-### Estrutura do nó
+### 8.1. Estrutura do nó
 
 ```c
 struct noarbin {
@@ -340,7 +351,7 @@ struct noarbin {
 typedef struct noarbin arbin;
 ```
 
-### Criação da árvore
+### 8.2. Criação da árvore
 
 ```c
 arbin *t;
@@ -352,13 +363,19 @@ arbin *cria_arbin() {
 }
 ```
 
-**Encaminhamento:** pegar matéria.
+### 8.3. Encaminhamento
 
-## 9. Árvore AVL
+> **Pendente:** pegar matéria.
+
+---
+
+# Parte 2 — Árvore AVL
+
+## 9. Definição
 
 Uma **árvore AVL** é uma ABB autobalanceada que visa garantir complexidade assintótica logarítmica para as operações de inserção, remoção e busca.
 
-### 9.1. Fator de balanceamento
+## 10. Fator de balanceamento
 
 O **fator de balanceamento (FB)** de um nó é a diferença entre a altura da subárvore esquerda e a altura da subárvore direita:
 
@@ -381,7 +398,7 @@ $$
 $$
 \begin{aligned}
 FB(3) &= 0 - 0 = 0\\
-FB(2) &= 0 - 1 = -1\\  
+FB(2) &= 0 - 1 = -1\\
 FB(7) &= 2 - 1 = 1\\
 FB(4) &= 2 - 3 = -1
 \end{aligned}
@@ -399,5 +416,102 @@ $$
 -1 \leq H_{\mathrm{SAE}} - H_{\mathrm{SAD}} \leq 1
 $$
 
+## 11. Inserção na AVL
 
- 
+### Exercício pendente
+
+> Inserir os elementos indicados na árvore AVL.
+
+**Árvore inicial:** não anotada.
+
+**Elementos a inserir:** não anotados.
+
+## 12. Remoção na AVL
+
+A remoção na árvore AVL é realizada da mesma forma que na árvore binária de busca, com o procedimento adicional de corrigir o balanceamento, caso necessário.
+
+---
+
+# Parte 3 — Busca e ordenação (B.O.)
+
+## 13. Bubble Sort
+
+**Complexidade anotada:** \(O(n^2)\).
+
+Confere os elementos um por um e vai trocando.
+
+```text
+5 9 1 4 3
+→ {5 9: ok}
+→ {9 1: troca}
+→ ...
+```
+
+## 14. Selection Sort
+
+**Complexidade anotada:** \(O(n^2)\).
+
+Escolhe o menor ou maior elemento absoluto e vai adicionando aos elementos ordenados.
+
+```text
+5 9 1 4 3
+→ 1 | 5 9 4 3
+→ 1 3 | 5 9 4
+→ ...
+```
+
+Nesse exemplo, a ordenação é do menor para o maior. À esquerda de `|` estão os elementos ordenados.
+
+## 15. Insertion Sort
+
+**Complexidade anotada:** \(O(n^2)\).
+
+Segue o estilo de organização de cartas. Confere, por exemplo, da esquerda para a direita, definindo que o primeiro elemento da lista é realmente o primeiro.
+
+```text
+5 9 1 4 3
+→ {5 | 9: ok}
+→ {5 9 | 1: troca e põe no início}
+→ 1 5 9 | ...
+```
+
+## 16. Merge Sort
+
+**Complexidade anotada:** \(O(n\log n)\).
+
+Divide a lista ao meio até restar apenas um elemento em cada parte. Depois, junta as partes em ordem.
+
+### Exemplo
+
+```text
+10 8 12 7 15 5 30 32
+→ {10 8 12 7} | {15 5 30 32}
+```
+
+**Lado esquerdo:**
+
+```text
+{10 8 12 7}
+→ 10 8 | 12 7
+→ 10 | 8     12 | 7
+→ 8 10       7 12
+→ 7 8 10 12
+```
+
+**Lado direito:**
+
+```text
+{15 5 30 32}
+→ 15 5 | 30 32
+→ 15 | 5     30 | 32
+→ 5 15       30 32
+→ 5 15 30 32
+```
+
+**Junção dos dois lados, conforme anotado:**
+
+```text
+5 7 8 10 15 12 30 32
+```
+
+> **Pendente:** conferir o resultado final da junção.
